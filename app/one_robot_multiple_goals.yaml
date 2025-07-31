@@ -1,0 +1,18 @@
+
+world:
+  height: 10  # the height of the world
+  width: 10   # the width of the world
+  step_time: 0.1  # 10Hz calculate each step
+  sample_time: 0.1  # 10 Hz for render and data extraction 
+  offset: [0, 0] # the offset of the world on x and y 
+
+robot:
+  kinematics: {name: 'diff'}  # omni, diff, acker
+  shape: {name: 'circle', radius: 0.2}  # radius
+  state: [1, 1, 0]  # x, y, theta
+  goal: 
+    - [[3, 3, 0], [7, 3, 0], [7, 7, 0], [3, 7, 0], [9, 9, 0]]
+  behavior: {name: 'dash'} # move toward to the goal directly 
+  color: 'g' # green
+  plot:
+    show_goal: true  # show all goals on the plot

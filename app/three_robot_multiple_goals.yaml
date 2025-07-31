@@ -1,0 +1,30 @@
+
+world:
+  height: 10  # the height of the world
+  width: 10   # the width of the world
+  step_time: 0.1  # 10Hz calculate each step
+  sample_time: 0.1  # 10 Hz for render and data extraction 
+  offset: [0, 0] # the offset of the world on x and y 
+
+robot:
+  - number: 3
+    distribution: {name: 'manual'}
+    kinematics: {name: 'diff'}  # omni, diff, acker
+    shape: 
+      - {name: 'circle', radius: 0.2}  # radius
+    state: 
+      - [1, 1, 0]   # Robot 1 starting position
+      - [1, 9, 0]   # Robot 2 starting position  
+      - [9, 1, 0]   # Robot 3 starting position
+    goal:
+      - [[3, 3, 0], [7, 3, 0], [7, 7, 0], [3, 7, 0], [6, 6, 0]]  # Robot 1 goals
+      - [[3, 6, 0], [6, 6, 0], [6, 3, 0], [9, 3, 0], [9, 9, 0]]  # Robot 2 goals
+      - [[6, 4, 0], [3, 4, 0], [3, 8, 0], [6, 8, 0], [1, 9, 0]]  # Robot 3 goals
+    behavior: {name: 'rvo'} # use RVO for collision avoidance between robots
+    color: 
+      - 'royalblue'  # Robot 1 color
+      - 'red'        # Robot 2 color
+      - 'green'      # Robot 3 color
+    plot:
+      show_goal: true  # show all goals on the plot
+      show_trajectory: true  # show robot paths
